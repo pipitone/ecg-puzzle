@@ -4,7 +4,8 @@
     <title></title>
     <script>
 
-        const PUZZLE_DIFFICULTY = 4;
+        const ROWS = 3;
+        const COLS = 4
         const PUZZLE_HOVER_TINT = '#009900';
 
         var _stage;
@@ -24,13 +25,13 @@
         function init(){
             _img = new Image();
             _img.addEventListener('load',onImage,false);
-            _img.src = "normal-ecg.jpg";
+            _img.src = "normal-ecg-unlabelled.jpg";
         }
         function onImage(e){
-            _pieceWidth = Math.floor(_img.width / PUZZLE_DIFFICULTY)
-            _pieceHeight = Math.floor(_img.height / PUZZLE_DIFFICULTY)
-            _puzzleWidth = _pieceWidth * PUZZLE_DIFFICULTY;
-            _puzzleHeight = _pieceHeight * PUZZLE_DIFFICULTY;
+            _pieceWidth = Math.floor(_img.width / COLS)
+            _pieceHeight = Math.floor(_img.height / ROWS)
+            _puzzleWidth = _pieceWidth * COLS;
+            _puzzleHeight = _pieceHeight * ROWS;
             setCanvas();
             initPuzzle();
         }
@@ -66,7 +67,7 @@
             var piece;
             var xPos = 0;
             var yPos = 0;
-            for(i = 0;i < PUZZLE_DIFFICULTY * PUZZLE_DIFFICULTY;i++){
+            for(i = 0;i < ROWS * COLS;i++){
                 piece = {};
                 piece.sx = xPos;
                 piece.sy = yPos;
